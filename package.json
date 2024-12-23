@@ -1,7 +1,7 @@
 {
   "name": "4_react_component",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.html",
   "type": "module",
   "scripts": {
     "start": "parcel src/index.html",
