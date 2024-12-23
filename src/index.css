@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.weather-sidebar-btn {
+		@apply w-36 bg-[#3c87af] text-white py-2 rounded-md capitalize;
+	}
+	.more-options-link{
+		@apply text-xs text-white bg-gray-800 border border-slate-600 border-b-0 rounded-sm p-1 font-medium cursor-pointer hover:bg-slate-400
+	}
+}

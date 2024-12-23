@@ -1,0 +1,68 @@
+.shimmerEffectContainer {
+	padding: 20px 10px;
+	/* background-color: rgb(249, 244, 244); */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 30px;
+}
+.shimmerEffectCard {
+	width: 290px;
+	height: 350px;
+	display: flex;
+	flex-direction: column;
+	padding: 0px;
+	/* box-shadow: 1px 1px 2px 0px rgb(160, 160, 160); */
+	position: relative;
+	border-radius: 3px 3px 0px 0px;
+	/* background-color: rgb(230, 226, 226); */
+}
+
+.shimmerEffectCard .img {
+	height: 150px;
+	width: 50%;
+	margin: 10px;
+	/* background-color: rgb(195, 194, 194); */
+	position: relative;
+	/* animation: shimmerAnimation 3s linear infinite; */
+}
+.shimmerEffectCard .h3 {
+    margin: 2%;
+	height: 40px;
+	width: 96%;
+	border-radius: 5px;
+	/* background-color: rgb(195, 194, 194); */
+    /* animation: shimmerAnimation 1.5s linear infinite; */
+}
+.shimmerEffectCard .description {
+	margin: 2%;
+	height: 100px;
+	width: 96%;
+	border-radius: 5px;
+	/* background-color: rgb(195, 194, 194); */
+}
+.shimmerEffectCard .publish {
+	height: 30px;
+	width: 40%;
+	margin: 10px;
+	/* background-color: rgb(195, 194, 194); */
+	border-radius: 3px;
+}
+.shimmerEffectCard:nth-child(1) {
+	width: 630px;
+	height: 430px;
+	position: relative;
+}
+.shimmerEffectCard:nth-child(1) .h3 {
+	height: 100px;
+}
+.shimmerEffectCard:nth-child(1) .publish,
+.shimmerEffectCard:nth-child(1) .description {
+	display: none;
+}
+
+/* @keyframes shimmerAnimation {
+	50% {
+		background-color: rgb(169, 166, 166);
+	}
+} */
