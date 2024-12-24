@@ -34,7 +34,7 @@ export const FeedbackProvider = ({ children }) => {
   const [progress, setProgress] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/v3/getFeedback", {
+    fetch(`${process.env.BACKEND_URL}/api/v3/getFeedback`, {
       method: "get",
       headers: {
         Authorization: `bearer ${localStorage.getItem("Newspulse_Token")}`,
@@ -67,7 +67,7 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000")
+    fetch(`${process.env.BACKEND_URL}`)
       .then((res) => {
         return res.json();
       })
@@ -95,7 +95,7 @@ export const FeedbackProvider = ({ children }) => {
       return;
     }
     setProgress(10);
-    fetch("http://localhost:3000/api/v3/signup", {
+    fetch(`${process.env.BACKEND_URL}/api/v3/signup`, {
       method: "post",
       body: JSON.stringify(data),
       headers: {
@@ -143,7 +143,7 @@ export const FeedbackProvider = ({ children }) => {
     setProgress(10);
     setSpinner({ type: "sendfeedback" });
     setProgress(30);
-    fetch("http://localhost:3000/api/v3/sendFeedback", {
+    fetch(`${process.env.BACKEND_URL}/api/v3/sendFeedback`, {
       method: "post",
       body: JSON.stringify(data),
       headers: {
@@ -188,7 +188,7 @@ export const FeedbackProvider = ({ children }) => {
   const onLoginSubmit = (data) => {
     setProgress(10);
     setSpinner({ type: "login" });
-    fetch("http://localhost:3000/api/v3/login", {
+    fetch(`${process.env.BACKEND_URL}/api/v3/login`, {
       method: "post",
       body: JSON.stringify(data),
       headers: {
@@ -233,7 +233,7 @@ export const FeedbackProvider = ({ children }) => {
 
   const onFeedbackDelete = (id) => {
     setSpinner({ type: "delete" });
-    fetch("http://localhost:3000/api/v3/deletefeedback", {
+    fetch(`${process.env.BACKEND_URL}/api/v3/deletefeedback`, {
       method: "delete",
       body: JSON.stringify({ id }),
       headers: {
@@ -278,7 +278,7 @@ export const FeedbackProvider = ({ children }) => {
     setSpinner({ type: "edit" });
     e.preventDefault();
     setProgress(20);
-    fetch("http://localhost:3000/api/v3/updatefeedback", {
+    fetch(`${process.env.BACKEND_URL}/api/v3/updatefeedback`, {
       method: "put",
       body: JSON.stringify({
         ...editAlertValue,
@@ -346,7 +346,7 @@ export const FeedbackProvider = ({ children }) => {
       setProgress(10);
       setSpinner({ type: "clearAcount" });
       setProgress(30);
-      fetch("http://localhost:3000/api/v3/clearAcount", {
+      fetch(`${process.env.BACKEND_URL}/api/v3/clearAcount`, {
         method: "delete",
         headers: {
           Authorization: `bearer ${localStorage.getItem("Newspulse_Token")}`,

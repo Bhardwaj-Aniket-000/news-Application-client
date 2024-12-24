@@ -9,7 +9,8 @@ import LoadingBar from "react-top-loading-bar";
 import spinnerImg from "../../assets/feedback/dualring.svg";
 
 function CardApidata() {
-  const { fetchData, fetchMoreData, progress, newsSpinner } = useNewsData();
+  const { fetchData, fetchMoreData, progress, newsSpinner, inputValue } =
+    useNewsData();
   const style = {
     position: "absolute",
     background: "red",
@@ -17,9 +18,16 @@ function CardApidata() {
 
   return (
     <>
-      {/* <input type="text" id='search' placeholder='Serach Any Haedalines' onChange={(e) => {
-      setSearch(e.target.value)
-    }}/> */}
+      {/* {
+        <input
+          type="text"
+          id="search"
+          placeholder="Serach Any Headlines"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+      } */}
       <LoadingBar style={style} progress={progress} />
       {newsSpinner && (
         <img
@@ -47,21 +55,26 @@ function CardApidata() {
             {fetchData.length == 0 ? (
               <HomeShimmerEffect />
             ) : (
-              fetchData.map((item, ind) => {
-                if (ind != 99) {
-                  return (
-                    <NewsCard
-                      img={item.urlToImage}
-                      title={item.title}
-                      snippet={item.description}
-                      date={item.publishedAt}
-                      key={ind}
-                      favicon={item.source.name}
-                      source={item.url}
-                    />
-                  );
-                }
-              })
+              fetchData
+                .filter((news) => news.title.toString().includes(inputValue))
+                .map((item, ind) => {
+                  if (!item.title) {
+                      return <h1>no found</h1>
+                  }
+                  if (ind != 99) {
+                    return (
+                      <NewsCard
+                        img={item.urlToImage}
+                        title={item.title}
+                        snippet={item.description}
+                        date={item.publishedAt}
+                        key={ind}
+                        favicon={item.source.name}
+                        source={item.url}
+                      />
+                    );
+                  }
+                })
             )}
           </div>
         </InfiniteScroll>

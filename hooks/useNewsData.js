@@ -10,6 +10,8 @@ const useNewsData = () => {
     fetchMoreData,
     progress,
     newsSpinner,
+    inputValue,
+    setInputValue,
   } = useContext(NewsContext);
   return {
     fetchData,
@@ -19,6 +21,8 @@ const useNewsData = () => {
     fetchMoreData,
     progress,
     newsSpinner,
+    inputValue,
+    setInputValue,
   };
 };
 export default useNewsData;

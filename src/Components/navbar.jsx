@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import searchIcon from "../../assets/svg/search.svg";
 import { NavLink, useLocation } from "react-router-dom";
+import useNewsData from "../../hooks/useNewsData";
 
 function Navbar() {
+  const { inputValue, setInputValue } = useNewsData();
   const location = useLocation();
   const [hamburger, sethamburger] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+
   return (
     <>
       <nav>
@@ -140,7 +142,10 @@ function Navbar() {
       <div className="hamburger-nav">
         <button onClick={() => sethamburger(!hamburger)}>&#9776;</button>
         {hamburger && (
-          <div className="hamburger-content" onClick={() => sethamburger(!hamburger)}>
+          <div
+            className="hamburger-content"
+            onClick={() => sethamburger(!hamburger)}
+          >
             <li>
               <NavLink
                 to="/"
@@ -260,9 +265,8 @@ function Navbar() {
               type="search"
               name="search"
               id="search"
-              onChange={(e) => {
-                setInputValue(e.target.value);
-              }}
+              onChange={(e) => setInputValue(e.target.value)}
+              value={inputValue}
             />
             <img src={searchIcon} alt="search icon" />
           </div>

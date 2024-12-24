@@ -6,11 +6,12 @@ const NewsContext = createContext();
 export const NewsProvider = ({ children }) => {
   const params = useParams();
   const [fetchData, setFetchData] = useState([]);
-  const [PageNumber, setPageNumber] = useState(1);
+  // const [PageNumber, setPageNumber] = useState(1);
   const [totalResults, settotalResults] = useState();
   const [progress, setProgress] = useState();
   const [newsSpinner, setNewsSpinner] = useState(false);
   const pageNumberRef = useRef(1);
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     setNewsSpinner(true);
@@ -20,13 +21,16 @@ export const NewsProvider = ({ children }) => {
     fetch(
       `https://newsapi.org/v2/everything?q=${
         params.newsTitle ?? "india"
-      }&sortBy=publishedAt&apiKey=19a38ea771cb4a89bd0e0e69ddb9335b&page=${pageNumberRef.current}`
+      }&sortBy=publishedAt&apiKey=19a38ea771cb4a89bd0e0e69ddb9335b&page=${
+        pageNumberRef.current
+      }`
     )
       .then((res) => {
         setProgress(50);
         return res.json();
       })
       .then((res) => {
+        console.log(res)
         setProgress(70);
         settotalResults(Math.ceil(res.totalResults / 100));
         setFetchData(res.articles);
@@ -70,6 +74,8 @@ export const NewsProvider = ({ children }) => {
           fetchMoreData,
           progress,
           newsSpinner,
+          inputValue,
+          setInputValue,
         }}
       >
         {children}

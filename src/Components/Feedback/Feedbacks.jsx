@@ -25,7 +25,7 @@ const Feedbacks = () => {
               >
                 <p className="text-xs md:text-sm font-medium md:font-medium mt-1 text-gray-700">
                   {item.typeFeedback} feedback from
-                  <span className="font-medium md:font-bold text-black"> - {item.email}</span>
+                  <span className="font-medium md:font-bold text-black md:text-gray-700"> - {item.email}</span>
                 </p>
                 <p className="text-xs mt-1 font-medium text-gray-700">{item.content}</p>
               </div>
