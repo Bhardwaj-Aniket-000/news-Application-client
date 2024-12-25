@@ -21,7 +21,10 @@ const FilterComponent = () => {
 
   return (
     <>
-      <div className="w-60 flex flex-col gap-4 p-2 bg-slate-300 mx-auto" onClick={() => setShowPopup(() => showPopup ? false:true)}>
+      <div
+        className="w-60 flex flex-col gap-4 p-2 bg-slate-300 mx-auto"
+        onClick={() => setShowPopup(() => (showPopup ? false : true))}
+      >
         <div>
           <button
             onClick={() => setQuery("")}
@@ -61,9 +64,17 @@ const FilterComponent = () => {
           }, 0)}
         </p>
         <div className="w-full">
-          <button className="text-green-500 capitalize font-bold" onClick={() => setShowPopup(true)}>Sign in</button>
+          <button
+            className="text-green-500 capitalize font-bold"
+            onClick={() => setShowPopup(true)}
+          >
+            Sign in
+          </button>
           {showPopup && (
-            <form className="flex flex-col w-1/2 bg-blue-500" onClick={(e) => e.stopPropagation()}>
+            <form
+              className="flex flex-col w-1/2 bg-blue-500"
+              onClick={(e) => e.stopPropagation()}
+            >
               <input
                 type="text"
                 className="w-full mt-2 p-1 bg-transparent border border-slate-700 rounded-md"

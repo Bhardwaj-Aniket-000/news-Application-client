@@ -123,7 +123,7 @@ function Navbar() {
         </ul>
 
         {location.pathname.includes("/feedbackAuth") ||
-        location.pathname == "/forcast" ? (
+        location.pathname.includes("/forcast") ? (
           ""
         ) : (
           <div className="search">
@@ -131,6 +131,7 @@ function Navbar() {
               type="search"
               name="search"
               id="search"
+              placeholder="Search Headlines"
               onChange={(e) => {
                 setInputValue(e.target.value);
               }}
@@ -265,6 +266,7 @@ function Navbar() {
               type="search"
               name="search"
               id="search"
+              placeholder="Search Headlines"
               onChange={(e) => setInputValue(e.target.value)}
               value={inputValue}
             />

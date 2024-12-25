@@ -3,11 +3,12 @@ import NewsCard from "../NewsCard";
 import HomeShimmerEffect from "../ShimmerEffect";
 import No_Internet from "../No_Internet";
 import { NavLink } from "react-router-dom";
-import NavigateBtn from "../NavigateBtn";
+// import NavigateBtn from "../NavigateBtn";
 import useSportsData from "../../../hooks/useSportsData";
 import LoadingBar from "react-top-loading-bar";
 import spinnerImg from "../../../assets/feedback/dualring.svg";
 import InfiniteScroll from "react-infinite-scroll-component";
+import useNewsData from "../../../hooks/useNewsData";
 
 const Tech = () => {
   const {
@@ -19,6 +20,7 @@ const Tech = () => {
     spinner,
     fetchtechData,
   } = useSportsData();
+  const { inputValue } = useNewsData();
 
   // const handleNextNavigate = () => {
   //   if (PageNumber == totalResults) {
@@ -128,21 +130,23 @@ const Tech = () => {
             {techData.length == 0 ? (
               <HomeShimmerEffect />
             ) : (
-              techData.map((item, ind) => {
-                if (ind != 99) {
-                  return (
-                    <NewsCard
-                      img={item.urlToImage}
-                      title={item.title}
-                      snippet={item.description}
-                      date={item.publishedAt}
-                      key={ind}
-                      favicon={item.source.name}
-                      source={item.url}
-                    />
-                  );
-                }
-              })
+              techData
+                .filter((news) => news.title.toString().includes(inputValue))
+                .map((item, ind) => {
+                  if (ind != 99) {
+                    return (
+                      <NewsCard
+                        img={item.urlToImage}
+                        title={item.title}
+                        snippet={item.description}
+                        date={item.publishedAt}
+                        key={ind}
+                        favicon={item.source.name}
+                        source={item.url}
+                      />
+                    );
+                  }
+                })
             )}
           </div>
         </InfiniteScroll>

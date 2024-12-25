@@ -8,9 +8,12 @@ import useSportsData from "../../../hooks/useSportsData";
 import LoadingBar from "react-top-loading-bar";
 import spinnerImg from "../../../assets/feedback/dualring.svg";
 import InfiniteScroll from "react-infinite-scroll-component";
+import useNewsData from "../../../hooks/useNewsData";
 
 function CardApidata() {
-  const { fetchData, progress, spinner, fetchMoreData } = useSportsData();
+  const { fetchData, progress, spinner, fetchMoreData } =
+    useSportsData();
+  const { inputValue } = useNewsData();
 
   // const handleNextNavigate = () => {
   //   if (PageNumber == totalResults) {
@@ -132,21 +135,23 @@ function CardApidata() {
             {fetchData.length == 0 ? (
               <ShimmerEffect />
             ) : (
-              fetchData.map((item, ind) => {
-                if (ind != 99) {
-                  return (
-                    <NewsCard
-                      img={item.urlToImage}
-                      title={item.title}
-                      snippet={item.description}
-                      date={item.publishedAt}
-                      key={ind}
-                      favicon={item.source.name}
-                      source={item.url}
-                    />
-                  );
-                }
-              })
+              fetchData
+                .filter((news) => news.title.toString().includes(inputValue))
+                .map((item, ind) => {
+                  if (ind != 99) {
+                    return (
+                      <NewsCard
+                        img={item.urlToImage}
+                        title={item.title}
+                        snippet={item.description}
+                        date={item.publishedAt}
+                        key={ind}
+                        favicon={item.source.name}
+                        source={item.url}
+                      />
+                    );
+                  }
+                })
             )}
           </div>
         </InfiniteScroll>

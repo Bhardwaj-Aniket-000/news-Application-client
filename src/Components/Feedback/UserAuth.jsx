@@ -52,6 +52,7 @@ const UserAuth = () => {
             })}
             type="text"
             placeholder="Enter Username"
+            autoComplete="off"
             className="w-full placeholder-gray-600 p-1 md:p-2 text-sm mx-0 border-x-0 border-t-0 border-slate-500 rounded-none bg-transparent autofill:bg-transparent"
           />
           {errors.username?.message && (
@@ -63,6 +64,7 @@ const UserAuth = () => {
         <div className="relative pb-3">
           <input
             type="email"
+            autoComplete="off"
             {...register("email", {
               required: { value: true, message: "E-Mail - Missing" },
             })}

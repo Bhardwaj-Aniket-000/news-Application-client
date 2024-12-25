@@ -21,7 +21,7 @@ export const SportsProvider = ({ children }) => {
     fetch(
       `https://newsapi.org/v2/everything?q=${
         params.link ?? "sports"
-      }&sortBy=publishedAt&apiKey=19a38ea771cb4a89bd0e0e69ddb9335b&language=en&page=${
+      }&sortBy=publishedAt&apiKey=${process.env.API_KEY}&language=en&page=${
         pageNumberRef.current
       }`
     )
@@ -51,7 +51,7 @@ export const SportsProvider = ({ children }) => {
     fetch(
       `https://newsapi.org/v2/everything?q=${
         params.link ?? "tech"
-      }&sortBy=publishedAt&apiKey=19a38ea771cb4a89bd0e0e69ddb9335b&language=en&page=${
+      }&sortBy=publishedAt&apiKey=${process.env.API_KEY}&language=en&page=${
         pageNumberRef.current
       }`
     )
@@ -78,7 +78,7 @@ export const SportsProvider = ({ children }) => {
     fetch(
       `https://newsapi.org/v2/everything?q=${
         params.link ?? "india"
-      }&sortBy=publishedAt&apiKey=19a38ea771cb4a89bd0e0e69ddb9335b&page=${
+      }&sortBy=publishedAt&apiKey=${process.env.API_KEY}&page=${
         pageNumberRef.current
       }`
     )
@@ -100,7 +100,7 @@ export const SportsProvider = ({ children }) => {
     fetch(
       `https://newsapi.org/v2/everything?q=${
         params.link ?? "tech"
-      }&sortBy=publishedAt&apiKey=19a38ea771cb4a89bd0e0e69ddb9335b&page=${
+      }&sortBy=publishedAt&apiKey=${process.env.API_KEY}&page=${
         pageNumberRef2.current
       }`
     )

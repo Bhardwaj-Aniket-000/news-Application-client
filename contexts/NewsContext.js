@@ -21,7 +21,7 @@ export const NewsProvider = ({ children }) => {
     fetch(
       `https://newsapi.org/v2/everything?q=${
         params.newsTitle ?? "india"
-      }&sortBy=publishedAt&apiKey=19a38ea771cb4a89bd0e0e69ddb9335b&page=${
+      }&sortBy=publishedAt&apiKey=${process.env.API_KEY}&page=${
         pageNumberRef.current
       }`
     )
@@ -30,7 +30,7 @@ export const NewsProvider = ({ children }) => {
         return res.json();
       })
       .then((res) => {
-        console.log(res)
+        console.log(res);
         setProgress(70);
         settotalResults(Math.ceil(res.totalResults / 100));
         setFetchData(res.articles);
@@ -49,7 +49,7 @@ export const NewsProvider = ({ children }) => {
     fetch(
       `https://newsapi.org/v2/everything?q=${
         params.newsTitle ?? "india"
-      }&sortBy=publishedAt&apiKey=19a38ea771cb4a89bd0e0e69ddb9335b&page=${
+      }&sortBy=publishedAt&apiKey=${process.env.API_KEY}&page=${
         pageNumberRef.current
       }`
     )

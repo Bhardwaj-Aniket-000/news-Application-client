@@ -8,7 +8,7 @@ import spinnerimg from "../../../assets/feedback/spinner.svg";
 const LoginAlert = () => {
   const navigate = useNavigate();
   const { onLoginSubmit, loginError, spinner, setSpinner } = useFeedbacks();
-  
+
   useEffect(() => {
     if (localStorage.getItem("Newspulse_Token")) {
       navigate("/feedbackAuth/sendfeedback");
@@ -55,6 +55,7 @@ const LoginAlert = () => {
         <div className="relative pb-2">
           <input
             type="email"
+            autoComplete="off"
             {...register("email", {
               required: { value: true, message: "Enter a valid E-Mail" },
             })}

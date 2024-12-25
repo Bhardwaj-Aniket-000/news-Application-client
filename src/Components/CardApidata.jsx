@@ -58,9 +58,6 @@ function CardApidata() {
               fetchData
                 .filter((news) => news.title.toString().includes(inputValue))
                 .map((item, ind) => {
-                  if (!item.title) {
-                      return <h1>no found</h1>
-                  }
                   if (ind != 99) {
                     return (
                       <NewsCard
