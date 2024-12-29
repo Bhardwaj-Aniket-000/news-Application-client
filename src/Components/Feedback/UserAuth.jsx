@@ -35,7 +35,6 @@ const UserAuth = () => {
         {spinner.type == "signup" && <Spinner img={spinnerimg} />}
         <h2 className="text-xs md:text-base capitalize md:mb-5 font-medium text-slate-600">
           Sign-Up to leave a feefback{" "}
-          <span className="text-red-600 text-xs ca">(security purpose)</span>
         </h2>
         <div className="relative pb-3 ">
           <input

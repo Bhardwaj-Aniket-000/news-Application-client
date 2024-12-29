@@ -60,7 +60,7 @@ const FeedbackForm = () => {
                   message: "*Select at Least one Option",
                 },
               })}
-              className="w-full md:w-[400px] bg-transparent mt-2 p-1 border-x-0 border-t-0 border-b border-b-slate-500 text-sm font-normal outline-none text-gray-600 cursor-pointer"
+              className="w-full md:w-[400px] bg-transparent mt-2 p-1 border-x-0 border-t-0 border-b border-b-slate-500 text-sm font-normal outline-none text-gray-500 cursor-pointer"
               value={formValue.typeFeedback}
               onChange={(e) =>
                 setFormValue({ ...formValue, typeFeedback: e.target.value })
@@ -69,20 +69,35 @@ const FeedbackForm = () => {
               <option value="" hidden>
                 Select-Feedback-type
               </option>
-              <option className="bg-slate-300" value="good">
-                Good
+              <option
+                className="bg-slate-300 text-orange-500 text-xl"
+                value="very bad"
+              >
+                &#9734;
               </option>
-              <option className="bg-slate-300" value="very good">
-                Very Good
+              <option
+                className="bg-slate-300 text-orange-500 text-xl"
+                value="bad"
+              >
+                &#9734;&#9734;
               </option>
-              <option className="bg-slate-300" value="bad">
-                Bad
+              <option
+                className="bg-slate-300 text-orange-500 text-xl"
+                value="good"
+              >
+                &#9734;&#9734;&#9734;
               </option>
-              <option className="bg-slate-300" value="very bad">
-                Very Bad
+              <option
+                className="bg-slate-300 text-orange-500 text-xl"
+                value="very good"
+              >
+                &#9734;&#9734;&#9734;&#9734;
               </option>
-              <option className="bg-slate-300" value="excellent">
-                Excellent
+              <option
+                className="bg-slate-300 text-orange-500 text-xl"
+                value="excellent"
+              >
+                &#9734;&#9734;&#9734;&#9734;&#9734;
               </option>
             </select>
             {errors.typeFeedback?.message && (

@@ -14,7 +14,7 @@ const Weatherbtn = () => {
       {hamburger && (
         <div
           onClick={() => setHamburger(!hamburger)}
-          className="w-[160px] bg-gray-800 absolute top-0 flex flex-col items-start p-3 gap-2 rounded-r-md md:hidden"
+          className="w-[160px] bg-gray-800 absolute top-0 z-10 flex flex-col items-start p-3 gap-2 rounded-r-md md:hidden"
         >
           <NavLink
             to="/forcast"

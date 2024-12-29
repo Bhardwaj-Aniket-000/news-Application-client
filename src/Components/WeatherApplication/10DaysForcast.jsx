@@ -28,6 +28,17 @@ const HourlyWeather = ({ time, obj }) => {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          infinite: false,
+          speed: 500,
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+    ],
   };
   const { weatherinfo, errMessage, tenDaysForcast, forecastErr } =
     useWeatherData();
@@ -63,32 +74,32 @@ const HourlyWeather = ({ time, obj }) => {
         ) : weatherinfo.city == undefined ? (
           <WeatherShimmerEffect />
         ) : (
-          <div className="flex gap-12">
+          <div className="md:flex md:gap-12">
             <div className="p-3 flex flex-col justify-center">
-              <p className="font-medium text-sm">Now</p>
+              <p className="text-xs font-medium md:text-sm">Now</p>
               <div className="flex items-center">
                 <img
                   src={tempratureIcon}
                   alt="current temprature icon"
-                  className="w-8"
+                  className="w-5 md:w-8"
                 />
-                <p className="text-2xl font-semibold">
+                <p className="text-lg md:text-2xl font-semibold">
                   {weatherinfo.Temprature}&deg;C
                 </p>
                 <img
                   src={weatherinfo.weatherIcon}
                   alt="current weather icon"
-                  className="w-20 border rounded-md ml-3 p-1"
+                  className="w-14 md:w-20 border rounded-md ml-3 p-1"
                 />
               </div>
-              <p className="font-semibold capitalize text-sm">
+              <p className="text-sm font-semibold capitalize md:text-md">
                 {weatherinfo.weatherText}
               </p>
               <p className="text-xs font-semibold capitalize">
                 feel like : {weatherinfo.FeelLike}&deg; C
               </p>
             </div>
-            <div className="p-3 flex flex-col justify-center">
+            <div className="hidden p-3 md:flex flex-col justify-center">
               <div className="flex items-start justify-start">
                 <img
                   src={locationIcon}
@@ -114,20 +125,20 @@ const HourlyWeather = ({ time, obj }) => {
         ) : response.length == 0 ? (
           <WeatherShimmerEffect />
         ) : (
-          <Slider {...settings} className="p-3 w-[70%] my-8">
+          <Slider {...settings} className="mx-auto w-[90%] p-1 md:p-3 md:w-[70%] md:mx-0 my-8">
             {response.map((obj, ind) => {
               return (
                 <div key={ind} className="h-52">
-                  <div className="flex flex-col gap-2 w-[90%] h-52 rounded-md bg-slate-200 p-2 py-4">
-                    <h5 className="text-center text-xs font-bold mb-1">
+                  <div className="flex flex-col gap-2 w-[90%] h-52 rounded-md bg-slate-200 p-1 md:p-2 py-4">
+                    <h5 className="text-center text-xs font-normal md:font-bold mb-1">
                       {obj.time}
                     </h5>
-                    <div className="flex items-center justify-center w-28 h-24">
+                    <div className="relative flex items-center justify-center w-28 min-h-16">
                       {obj.weather_code == 0 && (
                         <img
                           src={sunny}
                           alt="daily-weather-icon"
-                          className="w-16"
+                          className="w-10 md:w-16"
                         />
                       )}
                       {obj.weather_code > 0 && obj.weather_code < 10 && (
@@ -180,33 +191,33 @@ const HourlyWeather = ({ time, obj }) => {
                         />
                       )}
                     </div>
-                    <p className="text-center text-xs font-semibold flex items-center mx-auto">
+                    <p className="text-center text-xs font-normal md:font-semibold flex items-center mx-auto">
                       <img
                         src={precipIcon}
                         alt="precipitation-icon"
-                        className="w-6"
+                        className="w-4 md:w-6"
                       />
-                      <span className="ml-4">{obj.precipitation_sum} mm</span>
+                      <span className=" ml-1 md:ml-4">{obj.precipitation_sum} mm</span>
                     </p>
-                    <p className="text-center text-xs font-bold flex items-center mx-auto">
+                    <p className="text-center text-xs font-normal md:font-bold flex items-center mx-auto">
                       <img
                         src={tempratureIcon}
                         alt="temprature icon"
-                        className="w-6"
+                        className="w-4 md:w-6"
                       />
-                      <span>
+                      <span className="text-[9px] md:text-xs">
                         {" "}
                         {obj.apparent_temperature_max}&deg;C ,{" "}
                         {obj.apparent_temperature_min}&deg;C
                       </span>
                     </p>
-                    <p className="text-center text-xs font-semibold flex items-start mx-auto">
+                    <p className="text-center text-xs font-medium md:font-semibold flex items-start mx-auto">
                       <img
                         src={windIcon}
                         alt="precipitation-icon"
                         className="w-6"
                       />
-                      <span className="ml2">{obj.wind_speed_10m_max} kph</span>
+                      <span className="">{obj.wind_speed_10m_max} kph</span>
                     </p>
                   </div>
                 </div>

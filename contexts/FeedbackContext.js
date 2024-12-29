@@ -91,6 +91,9 @@ export const FeedbackProvider = ({ children }) => {
       setSignupError(
         "you are not signup again , while you are logging your account"
       );
+      setTimeout(() => {
+        setSignupError("");
+      }, 3000);
       setSpinner(false);
       return;
     }

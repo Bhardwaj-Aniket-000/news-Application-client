@@ -22,17 +22,17 @@ export const WeatherProvider = ({ children }) => {
     setProgress(10);
     setSpinner(true);
     setProgress(30);
-    const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=0c0289607e764f3f883100440242812&q=${
       getInput ?? "chandigarh"
     }&days=10`;
-    const options = {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "a23bfcd749msheab360a7f47b447p169793jsnaa4b28a51c77",
-        "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
-      },
-    };
-    fetch(url, options)
+    // const options = {
+    //   method: "GET",
+    //   headers: {
+    //     "x-rapidapi-key": "a23bfcd749msheab360a7f47b447p169793jsnaa4b28a51c77",
+    //     "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
+    //   },
+    // };
+    fetch(url)
       .then((res) => {
         setProgress(50);
         setErrMessage("still wait");

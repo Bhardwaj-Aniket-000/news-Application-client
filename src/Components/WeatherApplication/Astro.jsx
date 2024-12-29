@@ -25,32 +25,13 @@ const Astro = () => {
       ) : weatherinfo.city == undefined ? (
         <AstroShimmerEffect />
       ) : (
-        <div className="w-80% h-full px-10 flex gap-10 rounded-md">
-          <div className="p-4 flex flex-col gap-4">
-            <div className="flex flex-col justify-center gap-2 bg-slate-200 p-2 items-center rounded-md">
-              <p className="font-medium">{weatherinfo.sunrise}</p>
-              <img src={sunriseIcon} alt="Sun Rise-icon" className="w-14" />
-              <p className="text-lg font-medium capitalize">sunrise</p>
-            </div>
-            <div className="flex flex-col justify-center gap-2 bg-slate-200 p-2 items-center rounded-md">
-              <p className="font-medium">{weatherinfo.sunset}</p>
-              <img src={sunsetIcon} alt="Sun Rise-icon" className="w-14" />
-              <p className="text-lg font-medium capitalize">sunset</p>
-            </div>
-            <div className="flex flex-col justify-center gap-2 bg-slate-200 p-2 items-center rounded-md">
-              <p className="font-medium">{weatherinfo.moonrise}</p>
-              <img src={moonriseIcon} alt="Sun Rise-icon" className="w-10" />
-              <p className="text-lg font-medium capitalize">moonrise</p>
-            </div>
-            <div className="flex flex-col justify-center gap-2 bg-slate-200 p-2 items-center rounded-md">
-              <p className="font-medium">{weatherinfo.moonset}</p>
-              <img src={moonsetIcon} alt="Sun Rise-" className="w-10" />
-              <p className="text-lg font-medium capitalize">moonset</p>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center gap-5 items-center">
-            <p className="font-medium flex flex-col items-center">
-              <span>Now :</span> {weatherinfo.is_day == 0 ? "Night" : "Day"} ,{" "}
+        <div className="w-80% h-full px-2 md:px-10 flex gap-10 rounded-md">
+          <div className="hidden md:flex flex-col justify-center gap-5 items-center">
+            <p className=" font-normal md:font-medium flex flex-col items-center">
+              <span>
+                Now :
+              </span>{" "}
+              {weatherinfo.is_day == 0 ? "Night" : "Day"} ,{" "}
               {weatherinfo.time.slice(10)}
             </p>
             {weatherinfo.is_day == 0 ? (
@@ -58,6 +39,56 @@ const Astro = () => {
             ) : (
               <img src={sunIcon} alt="weather day icon" className="w-14" />
             )}
+          </div>
+          <div className="p-4 flex flex-wrap md:flex-nowrap md:flex-col gap-4">
+            <div className="flex flex-col justify-center gap-2 bg-slate-200 p-2 items-center rounded-md">
+              <p className="font-medium text-xs md:text-base">
+                {weatherinfo.sunrise}
+              </p>
+              <img
+                src={sunriseIcon}
+                alt="Sun Rise-icon"
+                className="w-6 md:w-14"
+              />
+              <p className="text-xs md:text-lg font-medium capitalize">
+                sunrise
+              </p>
+            </div>
+            <div className="flex flex-col justify-center gap-2 bg-slate-200 p-2 items-center rounded-md">
+              <p className="font-medium text-xs md:text-base">
+                {weatherinfo.sunset}
+              </p>
+              <img
+                src={sunsetIcon}
+                alt="Sun Rise-icon"
+                className="w-6 md:w-14"
+              />
+              <p className="text-xs md:text-lg font-medium capitalize">
+                sunset
+              </p>
+            </div>
+            <div className="flex flex-col justify-center gap-2 bg-slate-200 p-2 items-center rounded-md">
+              <p className="font-medium text-xs md:text-base">
+                {weatherinfo.moonrise}
+              </p>
+              <img
+                src={moonriseIcon}
+                alt="Sun Rise-icon"
+                className="w-5 md:w-10"
+              />
+              <p className="text-xs md:text-lg font-medium capitalize">
+                moonrise
+              </p>
+            </div>
+            <div className="flex flex-col justify-center gap-2 bg-slate-200 p-2 items-center rounded-md">
+              <p className="font-medium text-xs md:text-base">
+                {weatherinfo.moonset}
+              </p>
+              <img src={moonsetIcon} alt="Sun Rise-" className="w-5 md:w-10" />
+              <p className="text-xs md:text-lg font-medium capitalize">
+                moonset
+              </p>
+            </div>
           </div>
         </div>
       )}
