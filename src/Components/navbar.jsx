@@ -123,7 +123,8 @@ function Navbar() {
         </ul>
 
         {location.pathname.includes("/feedbackAuth") ||
-        location.pathname.includes("/forcast") ? (
+        location.pathname.includes("/forcast") ||
+        location.pathname.includes("/chatapplication") ? (
           ""
         ) : (
           <div className="search">
@@ -253,6 +254,18 @@ function Navbar() {
                 }}
               >
                 feedback
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/chatapplication"
+                className={({ isActive }) => {
+                  if (isActive) {
+                    return "isActive";
+                  }
+                }}
+              >
+                chat
               </NavLink>
             </li>
           </div>

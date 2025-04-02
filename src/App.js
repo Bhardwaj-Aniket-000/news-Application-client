@@ -8,6 +8,7 @@ import Footer from "./Components/Footer";
 import { FeedbackProvider } from "../contexts/FeedbackContext";
 import { WeatherProvider } from "../contexts/WeatherContext";
 import FilterComponent from "../hooks/useFilter";
+// import {} from ""
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
         <SportsProvider>
           <FeedbackProvider>
             <WeatherProvider>
-              <div className="flex flex-col min-h-full max-w-[1500px] mx-auto">
+              <div className="flex flex-col min-h-full max-w-[1600px] mx-auto">
                 <Header />
                 <Navbar />
                 <main>

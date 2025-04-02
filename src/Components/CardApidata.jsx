@@ -42,7 +42,7 @@ function CardApidata() {
         <InfiniteScroll
           dataLength={fetchData.length}
           next={fetchMoreData}
-          hasMore={fetchData.length != 500}
+          hasMore={fetchData.length < 400}
           loader={
             <img
               src={spinnerImg}

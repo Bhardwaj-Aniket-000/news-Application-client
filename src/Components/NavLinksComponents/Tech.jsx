@@ -117,7 +117,7 @@ const Tech = () => {
         <InfiniteScroll
           dataLength={techData.length}
           next={fetchtechData}
-          hasMore={techData.length != 500}
+          hasMore={techData.length < 400}
           loader={
             <img
               src={spinnerImg}
